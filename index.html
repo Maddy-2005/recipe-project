@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — Indian Recipe Finder</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="auth-page">
+
+  <!-- Fixed blurred Indian food background -->
+  <div class="auth-bg"></div>
+  <div class="auth-bg-overlay"></div>
+
+  <!-- Scrollable page content -->
+  <div class="auth-scroll">
+
+    <!-- ══════════════════════════════════════════
+         LOGIN CARD
+    ══════════════════════════════════════════ -->
+    <div class="auth-hero">
+      <div class="auth-container">
+
+        <!-- Left decorative panel -->
+        <div class="auth-panel">
+          <div class="auth-panel-logo">
+            <span class="logo-icon">🍛</span>
+            <span>Indian Recipe Finder</span>
+          </div>
+          <div class="auth-panel-tagline">
+            <h2>Taste the soul of Indian cuisine.</h2>
+            <p>Explore hundreds of authentic recipes — from rich biryanis and creamy curries to crispy street food and festive sweets.</p>
+            <div class="spice-dots">
+              <div class="spice-dot"></div>
+              <div class="spice-dot"></div>
+              <div class="spice-dot"></div>
+            </div>
+          </div>
+          <div class="auth-panel-bottom">🌶️ &nbsp;Powered by TheMealDB</div>
+        </div>
+
+        <!-- Right form panel -->
+        <div class="auth-form-panel">
+          <h1>Welcome back</h1>
+          <p class="auth-subtitle">
+            New here? <a href="register.html">Create an account →</a>
+          </p>
+
+          <div id="login-message" class="auth-error"></div>
+
+          <form id="login-form" novalidate>
+            <div class="form-group">
+              <label for="login-email">Email Address</label>
+              <input type="email" id="login-email" placeholder="you@example.com" autocomplete="email" required />
+            </div>
+            <div class="form-group">
+              <label for="login-password">Password</label>
+              <input type="password" id="login-password" placeholder="Enter your password" autocomplete="current-password" required />
+            </div>
+            <button type="submit" class="btn-primary">Sign In →</button>
+          </form>
+        </div>
+
+      </div>
+    </div><!-- /auth-hero -->
+
+    <!-- ══════════════════════════════════════════
+         FAQ SECTION
+    ══════════════════════════════════════════ -->
+    <section class="faq-section" id="faq-section">
+      <div class="faq-inner">
+        <div class="section-heading">
+          <div class="eyebrow">🙋 Got Questions?</div>
+          <h2>Frequently Asked Questions</h2>
+          <p>Everything you need to know about Indian Recipe Finder.</p>
+        </div>
+
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-q-text">What types of Indian recipes can I find here?</span>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <p>You can explore a wide variety of authentic Indian recipes including North Indian classics like Butter Chicken, Biryani, and Paneer Tikka Masala; South Indian dishes like Dosa and Idli; street food favourites like Samosa; festive sweets like Gulab Jamun and Kheer; and vegetarian staples like Dal Makhani and Aloo Gobi.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-q-text">How do I create an account?</span>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <p>Click the "Create an account" link above, or go to the Register page. Enter your name, email address, and a password of at least 6 characters. Once registered, you can log in immediately with those credentials. Your data is stored securely in your browser's local storage.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-q-text">I forgot my password — what do I do?</span>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <p>Since all data is stored locally in your browser, there is no password recovery via email. If you have forgotten your password, you can register a new account with a different email address. We recommend noting your credentials in a safe place.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-q-text">Is my account information safe?</span>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <p>Your account data (name, email, password) is stored only in your browser's localStorage — it never leaves your device and is never sent to any external server. This keeps your information private, but does mean your account is only accessible from the same device and browser you registered with.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-q-text">Where does the recipe data come from?</span>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <p>All recipes are sourced from TheMealDB, a free public recipe database with thousands of dishes from cuisines around the world. When you search for Indian food, we query their API and display matching results with full ingredients, cooking instructions, and YouTube video links.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-q-text">Can I use this app on my mobile phone?</span>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <p>Absolutely! Indian Recipe Finder is fully responsive and works beautifully on smartphones, tablets, and desktops. The recipe cards, search bar, modal popups, and all interactive elements are fully optimised for touch screens and smaller displays.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-q-text">Do the recipes include cooking videos?</span>
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer">
+              <p>Yes! Many recipes include an embedded YouTube cooking video inside the recipe detail popup. When available, you will see a "Watch &amp; Cook" section at the bottom of the recipe view where you can follow along with a video tutorial while cooking.</p>
+            </div>
+          </div>
+
+        </div><!-- /faq-list -->
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         FOOTER
+    ══════════════════════════════════════════ -->
+    <footer class="footer">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <span class="logo-e">🍛</span>
+            <span class="logo-t">Indian Recipe Finder</span>
+          </div>
+          <p>Your one-stop destination for authentic Indian recipes. From grandma's kitchen to your plate — discover the rich and diverse flavours of India.</p>
+          <div class="social-links">
+            <a class="social-link" href="#" title="Facebook">f</a>
+            <a class="social-link" href="#" title="Instagram">📸</a>
+            <a class="social-link" href="#" title="Twitter">𝕏</a>
+            <a class="social-link" href="#" title="YouTube">▶</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>🍽️ Popular Dishes</h4>
+          <ul class="footer-links">
+            <li><a href="register.html">Biryani</a></li>
+            <li><a href="register.html">Butter Chicken</a></li>
+            <li><a href="register.html">Paneer Tikka</a></li>
+            <li><a href="register.html">Dal Makhani</a></li>
+            <li><a href="register.html">Samosa</a></li>
+            <li><a href="register.html">Gulab Jamun</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>🗺️ Cuisines</h4>
+          <ul class="footer-links">
+            <li><a href="register.html">North Indian</a></li>
+            <li><a href="register.html">South Indian</a></li>
+            <li><a href="register.html">Coastal Indian</a></li>
+            <li><a href="register.html">Goan</a></li>
+            <li><a href="register.html">Mughlai</a></li>
+            <li><a href="register.html">Gujarati</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>🌶️ Key Spices</h4>
+          <div class="footer-spices">
+            <span class="spice-tag">Turmeric</span>
+            <span class="spice-tag">Cumin</span>
+            <span class="spice-tag">Coriander</span>
+            <span class="spice-tag">Cardamom</span>
+            <span class="spice-tag">Garam Masala</span>
+            <span class="spice-tag">Saffron</span>
+            <span class="spice-tag">Mustard Seeds</span>
+            <span class="spice-tag">Fenugreek</span>
+            <span class="spice-tag">Star Anise</span>
+            <span class="spice-tag">Cloves</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Indian Recipe Finder · Recipes powered by <strong style="color:rgba(253,246,232,.6)">TheMealDB</strong> · Made with ❤️ for Indian food lovers.<strong style="color:rgba(253,246,232,.6)">Created By :-</strong><strong style="color:rgba(242, 164, 9, 0.942)">Shreyans and Pradyumna</strong></p>
+        <div class="footer-bottom-links">
+          <a href="#faq-section">FAQ</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- /auth-scroll -->
+
+  <script src="script.js"></script>
+</body>
+</html>

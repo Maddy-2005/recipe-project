@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home — Indian Recipe Finder</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="home-page">
+
+  <!-- ═══════════════════════════════ NAVBAR ═══════════════════════════════ -->
+  <nav class="navbar">
+    <a class="nav-logo" href="home.html">
+      <span class="logo-icon">🍛</span>
+      <span>Indian Recipe Finder</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="home.html" class="active">Home</a></li>
+      <li><a href="#faq-section">FAQ</a></li>
+    </ul>
+    <div class="nav-user">
+      <span class="nav-user-name">Namaste, <span id="nav-username">Chef</span> 🙏</span>
+      <button id="logout-btn" class="btn-logout">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+          <polyline points="16 17 21 12 16 7"/>
+          <line x1="21" y1="12" x2="9" y2="12"/>
+        </svg>
+        Logout
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════ HERO ════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-eyebrow">🌶️ &nbsp;500+ Authentic Indian Recipes</div>
+    <h1>Discover the flavours<br/>of <em>Incredible India</em></h1>
+    <p class="hero-sub">
+      From aromatic biryanis and creamy curries to crispy street snacks — find any Indian recipe instantly.
+    </p>
+
+    <div class="search-wrapper">
+      <form id="search-form">
+        <div class="search-bar">
+          <input type="text" id="search-input"
+            placeholder='Search any dish… "biryani", "dosa", "samosa"…'
+            autocomplete="off" spellcheck="false" />
+          <button type="submit" class="btn-search">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <span>Search</span>
+          </button>
+        </div>
+      </form>
+
+      <!-- Quick chips -->
+      <div class="search-chips">
+        <span class="chip" data-query="biryani">🍚 Biryani</span>
+        <span class="chip" data-query="butter chicken">🍗 Butter Chicken</span>
+        <span class="chip" data-query="paneer">🧀 Paneer</span>
+        <span class="chip" data-query="dal">🫘 Dal</span>
+        <span class="chip" data-query="samosa">🥟 Samosa</span>
+        <span class="chip" data-query="dosa">🥞 Dosa</span>
+        <span class="chip" data-query="tikka masala">🌶️ Tikka</span>
+        <span class="chip" data-query="korma">🥘 Korma</span>
+        <span class="chip" data-query="naan">🫓 Naan</span>
+        <span class="chip" data-query="halwa">🍮 Halwa</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ CATEGORY TABS ════════════════════════════ -->
+  <div class="cat-section">
+    <div class="cat-tabs-wrap">
+      <div id="cat-tabs" class="cat-tabs">
+        <!-- Tabs injected by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════ RESULTS SECTION ══════════════════════════ -->
+  <section class="results-section" id="results-section" style="display:none;">
+
+    <div class="results-header" id="results-header" style="display:none;">
+      <h2 id="results-title">🇮🇳 Indian Recipes</h2>
+      <span class="results-count" id="results-count"></span>
+    </div>
+
+    <div class="loading-state" id="loading-state">
+      <div class="loading-spinner"></div>
+      <p>Simmering up some recipes for you…</p>
+    </div>
+
+    <div class="empty-state" id="empty-state">
+      <span class="empty-icon">🤷</span>
+      <h3>No recipes found</h3>
+      <p>Try "biryani", "paneer", "dal", or click a category tab above.</p>
+    </div>
+
+    <div class="recipe-grid" id="recipe-grid"></div>
+  </section>
+
+  <!-- ═══════════════════════════════ MODAL ════════════════════════════════ -->
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal">
+      <div style="position:relative;">
+        <img id="modal-img" class="modal-hero-img" src="" alt=""
+          onerror="this.src='https://images.unsplash.com/photo-1567337710282-00832b415979?w=800&q=80'" />
+        <div class="modal-header-overlay">
+          <button class="modal-close" id="modal-close-btn" aria-label="Close">✕</button>
+          <div class="modal-title-area">
+            <span id="modal-category" class="modal-category-tag">Recipe</span>
+            <h2 id="modal-title" class="modal-title"></h2>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-meta" id="modal-meta"></div>
+        <h3 class="modal-section-title">🌿 Ingredients</h3>
+        <div class="ingredients-grid" id="modal-ingredients"></div>
+        <h3 class="modal-section-title">📋 Step-by-Step Instructions</h3>
+        <ol class="step-list" id="modal-steps"></ol>
+        <div id="video-section" style="display:none;">
+          <h3 class="modal-section-title">▶️ Watch &amp; Cook</h3>
+          <div class="video-wrap" id="modal-video-wrap"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════ FAQ ═════════════════════════════════ -->
+  <section class="faq-section" id="faq-section">
+    <div class="faq-inner">
+      <div class="section-heading">
+        <div class="eyebrow">🙋 Got Questions?</div>
+        <h2>Frequently Asked Questions</h2>
+        <p>Everything you need to know about using Indian Recipe Finder.</p>
+      </div>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-q-text">How do the category tabs work?</span>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">
+            <p>Click any category tab (North Indian, South Indian, Street Food, Mughlai, Vegetarian, Indian Sweets, Indian Breads, Drinks &amp; Rice) to instantly load a curated set of recipes for that cuisine type. Each category fetches real recipes from TheMealDB and shows them as cards. Click "View Recipe" on any card to see the full details.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-q-text">Why do some cards say "Local Favourite"?</span>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">
+            <p>TheMealDB is a global recipe database and doesn't include every regional Indian dish. When a dish like Pani Puri or Jalebi isn't found in the database, we show it as a "Local Favourite" card with a description. You can search for similar terms in the search bar to find the closest available recipe.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-q-text">How do I search for a specific dish?</span>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">
+            <p>Type any dish name in the search bar at the top of the page — for example "biryani", "palak paneer", "dal tadka", or "chicken tikka" — and press Search or hit Enter. You can also click the quick-suggestion chips below the search bar. Results from TheMealDB appear instantly as recipe cards.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-q-text">Do the recipes include cooking videos?</span>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">
+            <p>Yes! Many recipes from TheMealDB include a linked YouTube cooking video. When available, you will see a "Watch &amp; Cook" section at the bottom of the recipe detail popup with an embedded video you can play directly on the page while cooking.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-q-text">How does logout work?</span>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">
+            <p>Click the "Logout" button in the top-right navbar. This clears your current session from the browser and redirects you to the login page. Your registered account stays saved in localStorage, so you can log back in at any time with the same email and password.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-q-text">Where does the recipe data come from?</span>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">
+            <p>All recipes are fetched in real time from TheMealDB — a free, open recipe database with thousands of dishes. Each search and category load makes a live API call, so you always get the latest available data including ingredients, instructions, and YouTube video links.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-q-text">Can I use this on my phone?</span>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">
+            <p>Absolutely! Indian Recipe Finder is fully mobile-responsive. The navbar, hero, category tabs, recipe grid, and recipe modal all adapt beautifully to small screens. The modal slides up from the bottom on mobile for a native app-like feel.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════ FOOTER ════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <div class="brand-logo">
+          <span class="logo-e">🍛</span>
+          <span class="logo-t">Indian Recipe Finder</span>
+        </div>
+        <p>Your one-stop destination for authentic Indian recipes. From grandma's kitchen to your plate — discover the rich and diverse flavours of India.</p>
+        <div class="social-links">
+          <a class="social-link" href="#" title="Facebook">f</a>
+          <a class="social-link" href="#" title="Instagram">📸</a>
+          <a class="social-link" href="#" title="Twitter">𝕏</a>
+          <a class="social-link" href="#" title="YouTube">▶</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>🍽️ Popular Dishes</h4>
+        <ul class="footer-links">
+          <li><a href="#" data-search="biryani">Chicken Biryani</a></li>
+          <li><a href="#" data-search="butter chicken">Butter Chicken</a></li>
+          <li><a href="#" data-search="paneer tikka">Paneer Tikka</a></li>
+          <li><a href="#" data-search="dal makhani">Dal Makhani</a></li>
+          <li><a href="#" data-search="samosa">Samosa</a></li>
+          <li><a href="#" data-search="gulab jamun">Gulab Jamun</a></li>
+          <li><a href="#" data-search="dosa">Masala Dosa</a></li>
+          <li><a href="#" data-search="korma">Chicken Korma</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>🗺️ By Cuisine</h4>
+        <ul class="footer-links">
+          <li><a href="#" data-search="butter chicken">North Indian</a></li>
+          <li><a href="#" data-search="dosa">South Indian</a></li>
+          <li><a href="#" data-search="fish curry">Coastal / Goan</a></li>
+          <li><a href="#" data-search="korma">Mughlai</a></li>
+          <li><a href="#" data-search="dhokla">Gujarati</a></li>
+          <li><a href="#" data-search="vindaloo">Goan Spicy</a></li>
+          <li><a href="#" data-search="noodles">Indo-Chinese</a></li>
+          <li><a href="#" data-search="halwa">Desserts</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>🌶️ Key Spices</h4>
+        <div class="footer-spices">
+          <span class="spice-tag">Turmeric</span>
+          <span class="spice-tag">Cumin</span>
+          <span class="spice-tag">Coriander</span>
+          <span class="spice-tag">Cardamom</span>
+          <span class="spice-tag">Garam Masala</span>
+          <span class="spice-tag">Saffron</span>
+          <span class="spice-tag">Mustard Seeds</span>
+          <span class="spice-tag">Fenugreek</span>
+          <span class="spice-tag">Star Anise</span>
+          <span class="spice-tag">Cloves</span>
+          <span class="spice-tag">Bay Leaf</span>
+          <span class="spice-tag">Asafoetida</span>
+          <span class="spice-tag">Pepper</span>
+          <span class="spice-tag">Chilli</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Indian Recipe Finder · Recipes powered by <strong style="color:rgba(253,246,232,.6)">TheMealDB</strong> · Made with ❤️ for Indian food lovers.<strong style="color:rgba(253,246,232,.6)">Created By :-</strong><strong style="color:rgba(242, 164, 9, 0.942)">Shreyans and Pradyumna</strong></p>
+      <div class="footer-bottom-links">
+        <a href="#faq-section">FAQ</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
