@@ -1,11 +1,3 @@
-/* =========================================================
-   INDIAN RECIPE FINDER  ·  script.js  (FINAL)
-   - Embedded DB of 55+ dishes  (no API needed)
-   - Register / Login / Logout  (localStorage)
-   - Category tabs + keyword search
-   - Recipe modal with ingredients, steps, YouTube link
-   ========================================================= */
-
 /* ---------- Storage keys ---------- */
 var KEYS = { USERS:'irf_users', EMAIL:'irf_email', NAME:'irf_name' };
 
@@ -55,10 +47,10 @@ var DB = [
           'Add tomato puree and spices. Simmer 15 min until oil separates.',
           'Blend gravy smooth. Add cooked chicken pieces.',
           'Stir in cream and kasuri methi. Simmer 5 min. Serve with naan.'],
-   yt:'https://youtu.be/a03U45jFxOI?si=ycXX1jOuwN4gPjPY'},
+   yt:'butter+chicken+recipe'},
 
   {id:'n02',cat:'North Indian',name:'Dal Makhani',
-   img:'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=500&q=80',
+   img:'https://www.sharmispassions.com/wp-content/uploads/2012/05/dal-makhani7.jpg',
    tags:['Vegetarian','Lentils','Creamy'],
    ingredients:['Black Urad Dal 1 cup','Rajma 2 tbsp','Butter 3 tbsp','Tomato 3','Onion 2','Ginger-Garlic Paste 1 tbsp','Cream 4 tbsp','Garam Masala 1 tsp','Cumin 1 tsp','Salt to taste'],
    steps:['Soak dal and rajma overnight. Pressure cook 6 whistles.',
@@ -69,7 +61,7 @@ var DB = [
    yt:'dal+makhani+recipe'},
 
   {id:'n03',cat:'North Indian',name:'Palak Paneer',
-   img:'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&q=80',
+   img:'https://www.kuchpakrahahai.in/wp-content/uploads/2015/06/Palak-Paneer-Recipe.jpg',
    tags:['Vegetarian','Greens','Gravy'],
    ingredients:['Spinach 500g','Paneer 250g','Onion 2','Tomato 2','Ginger 1 inch','Garlic 4 cloves','Green Chilli 2','Cream 2 tbsp','Garam Masala 1 tsp','Butter 2 tbsp','Salt to taste'],
    steps:['Blanch spinach 2 min in boiling water. Blend smooth.',
@@ -93,7 +85,7 @@ var DB = [
    yt:'chicken+tikka+masala+recipe'},
 
   {id:'n05',cat:'North Indian',name:'Chole Bhature',
-   img:'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=500&q=80',
+   img:'https://recipesinhindi.net/wp-content/uploads/2018/02/Chhole-Bhature14334.jpg',
    tags:['Vegetarian','Street Favourite','Chickpeas'],
    ingredients:['Chickpeas 2 cups (soaked)','Maida 2 cups','Yogurt ½ cup','Onion 2','Tomato 3','Ginger-Garlic Paste 2 tbsp','Chole Masala 2 tbsp','Oil for frying','Salt to taste'],
    steps:['Pressure cook chickpeas with tea bag and salt for 5 whistles.',
@@ -105,7 +97,7 @@ var DB = [
    yt:'chole+bhature+recipe'},
 
   {id:'n06',cat:'North Indian',name:'Rajma Chawal',
-   img:'https://images.unsplash.com/photo-1547592180-85f173990554?w=500&q=80',
+   img:'https://www.secondrecipe.com/wp-content/uploads/2017/08/rajma-chawal-1-1200x918.jpg',
    tags:['Vegetarian','Rice','Comfort Food'],
    ingredients:['Kidney Beans 1½ cups (soaked)','Basmati Rice 2 cups','Onion 2','Tomato 3','Ginger-Garlic Paste 2 tbsp','Rajma Masala 2 tbsp','Cumin 1 tsp','Ghee 2 tbsp','Salt to taste'],
    steps:['Pressure cook rajma until soft (6 whistles).',
@@ -141,7 +133,7 @@ var DB = [
    yt:'shahi+paneer+recipe'},
 
   {id:'n09',cat:'North Indian',name:'Rogan Josh',
-   img:'https://images.unsplash.com/photo-1574653853027-5382a3d23a15?w=500&q=80',
+   img:'https://i0.wp.com/thewildepicurean.com/wp-content/uploads/2025/02/roganjosh_2-1.jpg?resize=1229%2C1536&quality=100&ssl=1',
    tags:['Non-Veg','Kashmiri','Aromatic'],
    ingredients:['Lamb 700g','Yogurt 1 cup','Onion 3','Kashmiri Chilli 4','Cardamom 4','Cloves 5','Fennel Powder 2 tsp','Ginger Powder 1 tsp','Mustard Oil 4 tbsp','Salt to taste'],
    steps:['Heat mustard oil until smoking. Add whole spices.',
@@ -153,7 +145,7 @@ var DB = [
    yt:'rogan+josh+recipe'},
 
   {id:'n10',cat:'North Indian',name:'Sarson Ka Saag & Makki Roti',
-   img:'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&q=80',
+   img:'https://rajjoskitchen.com/wp-content/uploads/2024/02/IMG-20240201-WA0006.jpg',
    tags:['Vegetarian','Punjabi','Winter'],
    ingredients:['Mustard Leaves 500g','Spinach 200g','Makki Flour 2 cups','Onion 2','Garlic 6','Ginger 2 inches','Green Chilli 3','Butter 4 tbsp','Jaggery 1 tbsp','Salt to taste'],
    steps:['Cook mustard, spinach with salt and water 30 min.',
@@ -166,7 +158,7 @@ var DB = [
 
   /* ── South Indian ── */
   {id:'s01',cat:'South Indian',name:'Masala Dosa',
-   img:'https://images.unsplash.com/photo-1630383249896-424e482df921?w=500&q=80',
+   img:'https://vismaifood.com/storage/app/uploads/public/8b4/19e/427/thumb__700_0_0_0_auto.jpg',
    tags:['Vegetarian','Breakfast','Crispy'],
    ingredients:['Dosa Rice 2 cups','Urad Dal ½ cup','Chana Dal 2 tbsp','Potato 4','Onion 2','Green Chilli 3','Mustard Seeds 1 tsp','Turmeric ½ tsp','Curry Leaves','Oil','Salt to taste'],
    steps:['Soak rice, dals overnight. Grind smooth batter. Ferment 10 hours.',
@@ -190,7 +182,7 @@ var DB = [
    yt:'idli+sambar+recipe'},
 
   {id:'s03',cat:'South Indian',name:'Kerala Fish Curry',
-   img:'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500&q=80',
+   img:'https://wildgreensandsardines.com/wp-content/uploads/2020/03/Kerala-Fish-Curry_8957-1152x1536.jpg',
    tags:['Non-Veg','Coastal','Coconut'],
    ingredients:['Fish 500g','Coconut Milk 1 cup','Kokum or Tamarind','Onion 2','Tomato 2','Ginger 1 inch','Garlic 5','Green Chilli 3','Turmeric 1 tsp','Red Chilli Powder 2 tsp','Coconut Oil 3 tbsp','Curry Leaves'],
    steps:['Heat coconut oil. Crackle mustard and curry leaves.',
@@ -202,7 +194,7 @@ var DB = [
    yt:'kerala+fish+curry+recipe'},
 
   {id:'s04',cat:'South Indian',name:'Medu Vada',
-   img:'https://images.unsplash.com/photo-1547592180-85f173990554?w=500&q=80',
+   img:'https://maayeka.com/wp-content/uploads/2018/10/vrat-ka-medu-vada-2-2.jpg.webp',
    tags:['Vegetarian','Snack','Breakfast'],
    ingredients:['Urad Dal 1 cup','Green Chilli 2','Ginger 1 inch','Curry Leaves','Black Pepper 1 tsp','Coconut 2 tbsp','Rice Flour 1 tbsp','Salt to taste','Oil for frying'],
    steps:['Soak urad dal 4 hours. Grind to thick fluffy batter.',
@@ -214,7 +206,7 @@ var DB = [
    yt:'medu+vada+recipe'},
 
   {id:'s05',cat:'South Indian',name:'Chicken Chettinad',
-   img:'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=500&q=80',
+   img:'https://www.whiskaffair.com/wp-content/uploads/2020/09/Chicken-Chettinad-Curry-2-1-1024x1536.jpg',
    tags:['Non-Veg','Spicy','Aromatic'],
    ingredients:['Chicken 750g','Onion 3','Tomato 3','Ginger-Garlic Paste 3 tbsp','Fennel Seeds 2 tsp','Peppercorns 2 tsp','Star Anise 2','Coconut ¼ cup','Red Chilli 5','Coconut Oil 4 tbsp','Curry Leaves'],
    steps:['Dry roast fennel, pepper, star anise, red chilli. Grind with coconut.',
@@ -226,7 +218,7 @@ var DB = [
    yt:'chettinad+chicken+recipe'},
 
   {id:'s06',cat:'South Indian',name:'Rava Upma',
-   img:'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=500&q=80',
+   img:'https://www.whiskaffair.com/wp-content/uploads/2020/09/Upma-2-1-1024x1536.jpg',
    tags:['Vegetarian','Breakfast','Quick'],
    ingredients:['Semolina 1 cup','Onion 1','Green Chilli 2','Mustard Seeds 1 tsp','Urad Dal 1 tsp','Ginger ½ inch','Curry Leaves','Mixed Vegetables 1 cup','Water 2½ cups','Ghee 2 tbsp','Salt to taste'],
    steps:['Dry roast rava on low heat until fragrant (5 min). Set aside.',
@@ -238,7 +230,7 @@ var DB = [
    yt:'rava+upma+recipe'},
 
   {id:'s07',cat:'South Indian',name:'Uttapam',
-   img:'https://images.unsplash.com/photo-1630383249896-424e482df921?w=500&q=80',
+   img:'https://pipingpotcurry.com/wp-content/uploads/2026/01/Onion-Tomato-Uttapam-PipingPotCurry-1024x1536.jpg',
    tags:['Vegetarian','Breakfast','Thick'],
    ingredients:['Dosa Batter 2 cups','Onion 1','Tomato 1','Green Chilli 1','Capsicum ¼','Carrot (grated)','Fresh Coriander','Oil 2 tbsp','Salt to taste'],
    steps:['Prepare thick fermented dosa batter.',
@@ -250,7 +242,7 @@ var DB = [
    yt:'uttapam+recipe'},
 
   {id:'s08',cat:'South Indian',name:'Lemon Rice',
-   img:'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=500&q=80',
+   img:'https://www.cookwithmanali.com/wp-content/uploads/2016/01/South-Indian-Lemon-Rice-Recipe-1014x1536.jpg',
    tags:['Vegetarian','Rice','Tangy'],
    ingredients:['Cooked Rice 3 cups','Lemon Juice 3 tbsp','Mustard Seeds 1 tsp','Urad Dal 1 tsp','Green Chilli 2','Curry Leaves','Turmeric 1 tsp','Peanuts ¼ cup','Oil 2 tbsp','Salt to taste'],
    steps:['Heat oil. Fry peanuts until golden.',
@@ -275,7 +267,7 @@ var DB = [
    yt:'samosa+recipe'},
 
   {id:'sf02',cat:'Street Food',name:'Pani Puri (Gol Gappe)',
-   img:'https://images.unsplash.com/photo-1567337710282-00832b415979?w=500&q=80',
+   img:'https://www.sidechef.com/recipe/3883dffb-5fa2-4ee9-8054-d8de1409899f.jpg?d=1200x560',
    tags:['Vegetarian','Chaat','Tangy'],
    ingredients:['Sooji 1 cup','Maida 2 tbsp','Baking Soda pinch','Boiled Potato 2','Boiled Chickpeas ½ cup','Mint 1 cup','Green Chilli 2','Tamarind Chutney','Black Salt 1 tsp','Cumin Powder 1 tsp','Chaat Masala 1 tsp'],
    steps:['Mix sooji, maida, salt. Knead stiff dough. Rest 30 min.',
@@ -287,7 +279,7 @@ var DB = [
    yt:'pani+puri+recipe'},
 
   {id:'sf03',cat:'Street Food',name:'Pav Bhaji',
-   img:'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=500&q=80',
+   img:'https://www.cubesnjuliennes.com/wp-content/uploads/2020/07/Instant-Pot-Mumbai-Pav-Bhaji-1025x1536.jpg',
    tags:['Vegetarian','Mumbai','Street Classic'],
    ingredients:['Mixed Vegetables 3 cups','Pav Buns 8','Onion 2','Tomato 4','Capsicum 1','Butter 5 tbsp','Pav Bhaji Masala 3 tbsp','Ginger-Garlic Paste 1 tbsp','Lemon','Coriander','Salt to taste'],
    steps:['Pressure cook all vegetables until very soft.',
@@ -299,7 +291,7 @@ var DB = [
    yt:'pav+bhaji+recipe'},
 
   {id:'sf04',cat:'Street Food',name:'Veg Chowmein (Indian Street Style)',
-   img:'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=500&q=80',
+   img:'https://www.chefkunalkapur.com/wp-content/uploads/2021/03/veg-chowmein-min-1300x867.jpg?v=1620296035',
    tags:['Vegetarian','Indo-Chinese','Quick'],
    ingredients:['Noodles 200g','Cabbage 1 cup','Carrot 1','Capsicum 1','Onion 1','Spring Onion','Soy Sauce 2 tbsp','Green Chilli Sauce 1 tbsp','Ketchup 2 tbsp','Vinegar 1 tsp','Ginger-Garlic Paste 1 tbsp','Oil 3 tbsp'],
    steps:['Boil noodles with salt until just done. Drain and rinse. Toss with oil.',
@@ -311,7 +303,7 @@ var DB = [
    yt:'veg+chowmein+indian+street+style'},
 
   {id:'sf05',cat:'Street Food',name:'Egg Roll (Kolkata Style)',
-   img:'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&q=80',
+   img:'https://www.bigbasket.com/media/uploads/recipe/w-l/3684_1_1.jpg',
    tags:['Non-Veg','Kolkata Special','Wrap'],
    ingredients:['Maida 2 cups','Egg 4','Onion 2 (sliced)','Green Chilli 2','Kasundi Mustard','Ketchup','Chaat Masala','Lemon Juice','Oil 4 tbsp','Salt to taste'],
    steps:['Knead soft dough with maida, oil, salt. Rest 20 min.',
@@ -323,7 +315,7 @@ var DB = [
    yt:'kolkata+egg+roll+recipe'},
 
   {id:'sf06',cat:'Street Food',name:'Vada Pav (Mumbai Burger)',
-   img:'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=500&q=80',
+   img:'https://www.cookwithmanali.com/wp-content/uploads/2018/04/Vada-Pav-1014x1536.jpg',
    tags:['Vegetarian','Mumbai','Iconic'],
    ingredients:['Potato 5 (boiled mashed)','Pav Buns 6','Besan 1 cup','Mustard Seeds 1 tsp','Green Chilli 3','Ginger 1 inch','Garlic 4 cloves','Turmeric ½ tsp','Dry Garlic Chutney','Green Chutney','Oil for frying'],
    steps:['Temper mustard in oil. Add mashed potato, chilli, ginger, garlic, turmeric, coriander.',
@@ -335,7 +327,7 @@ var DB = [
    yt:'vada+pav+recipe'},
 
   {id:'sf07',cat:'Street Food',name:'Aloo Chaat',
-   img:'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500&q=80',
+   img:'https://www.cookwithmanali.com/wp-content/uploads/2014/11/Sweet-Potato-Chaat-Indian-1014x1536.jpg',
    tags:['Vegetarian','Chaat','Tangy'],
    ingredients:['Potato 4 (boiled cubed)','Tamarind Chutney 3 tbsp','Green Chutney 2 tbsp','Yogurt ½ cup','Chaat Masala 1 tsp','Red Chilli ½ tsp','Sev (chickpea noodles)','Pomegranate seeds','Coriander leaves'],
    steps:['Shallow fry boiled potato cubes until crispy.',
@@ -347,7 +339,7 @@ var DB = [
    yt:'aloo+chaat+recipe'},
 
   {id:'sf08',cat:'Street Food',name:'Bhel Puri',
-   img:'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500&q=80',
+   img:'https://c.ndtvimg.com/2023-06/a6rnonoo_bhel-puri_625x300_07_June_23.jpg?im=FeatureCrop,algorithm=dnn,width=620,height=350',
    tags:['Vegetarian','Mumbai Chaat','Crunchy'],
    ingredients:['Puffed Rice 3 cups','Sev 1 cup','Papdi 10 (crushed)','Potato 1 (boiled diced)','Onion 1','Tomato 1','Tamarind Chutney 3 tbsp','Green Chutney 2 tbsp','Chaat Masala 1 tsp','Coriander leaves'],
    steps:['Mix puffed rice with sev and crushed papdi.',
@@ -359,7 +351,7 @@ var DB = [
    yt:'bhel+puri+recipe'},
 
   {id:'sf09',cat:'Street Food',name:'Onion Pakora (Bhajiya)',
-   img:'https://images.unsplash.com/photo-1547592180-85f173990554?w=500&q=80',
+   img:'https://www.whiskaffair.com/wp-content/uploads/2020/07/Onion-Pakoda-2-1-1024x1536.jpg',
    tags:['Vegetarian','Monsoon Snack','Crispy'],
    ingredients:['Onion 4 (thin sliced)','Besan 1½ cups','Green Chilli 3','Coriander leaves','Ginger 1 inch','Red Chilli 1 tsp','Turmeric ¼ tsp','Ajwain ½ tsp','Baking Soda pinch','Salt to taste','Oil for frying'],
    steps:['Mix sliced onion with salt. Squeeze to release water.',
@@ -371,7 +363,7 @@ var DB = [
    yt:'onion+pakora+recipe'},
 
   {id:'sf10',cat:'Street Food',name:'Dahi Puri',
-   img:'https://images.unsplash.com/photo-1567337710282-00832b415979?w=500&q=80',
+   img:'https://ministryofcurry.com/wp-content/uploads/2022/07/Dahi-Puri_-4-1-1024x1536.jpg',
    tags:['Vegetarian','Chaat','Creamy'],
    ingredients:['Puri shells 16','Yogurt 1 cup (chilled whisked)','Boiled Potato 2','Boiled Chickpeas ½ cup','Tamarind Chutney','Green Chutney','Sev','Chaat Masala','Red Chilli Powder','Pomegranate seeds','Coriander'],
    steps:['Make a hole in top of each puri.',
@@ -383,7 +375,7 @@ var DB = [
    yt:'dahi+puri+recipe'},
 
   {id:'sf11',cat:'Street Food',name:'Veg Spring Roll',
-   img:'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500&q=80',
+   img:'https://hot-thai-kitchen.com/wp-content/uploads/2021/03/veggie-spring-rolls-blog.jpg',
    tags:['Vegetarian','Indo-Chinese','Crispy'],
    ingredients:['Spring Roll Sheets 12','Cabbage 2 cups','Carrot 1','Capsicum 1','Bean Sprouts ½ cup','Spring Onion','Soy Sauce 2 tbsp','Ginger-Garlic Paste 1 tbsp','Black Pepper 1 tsp','Cornflour (for sealing)','Oil for frying'],
    steps:['Stir fry ginger-garlic. Add all vegetables on high heat 3 min.',
@@ -395,7 +387,7 @@ var DB = [
    yt:'veg+spring+roll+recipe'},
 
   {id:'sf12',cat:'Street Food',name:'Chicken Kati Roll',
-   img:'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=500&q=80',
+   img:'https://madscookhouse.com/wp-content/uploads/2021/02/Chicken-Kathi-Roll-1024x516.jpg',
    tags:['Non-Veg','Kolkata','Wrap'],
    ingredients:['Paratha dough (maida)','Chicken 300g','Egg 2','Onion 2 (sliced)','Green Chilli 2','Chaat Masala','Lemon Juice','Green Chutney','Ginger-Garlic Paste 1 tbsp','Tandoori Spice 2 tbsp','Salt to taste'],
    steps:['Marinate chicken with ginger-garlic, tandoori spice, salt. Cook until done.',
@@ -420,7 +412,7 @@ var DB = [
    yt:'hyderabadi+dum+biryani+recipe'},
 
   {id:'m02',cat:'Mughlai',name:'Seekh Kebab',
-   img:'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=500&q=80',
+   img:'https://foodiesterminal.com/wp-content/uploads/2019/04/Mutton-seekh-kabab-recipe-2.jpg',
    tags:['Non-Veg','Grilled','Starter'],
    ingredients:['Minced Lamb 500g','Onion 1 (squeezed dry)','Ginger-Garlic Paste 2 tbsp','Green Chilli 3','Coriander & Mint leaves','Garam Masala 1 tsp','Red Chilli 1 tsp','Roasted Cumin 1 tsp','Egg 1','Oil for basting'],
    steps:['Squeeze all moisture from onion in cloth.',
@@ -432,7 +424,7 @@ var DB = [
    yt:'seekh+kebab+recipe'},
 
   {id:'m03',cat:'Mughlai',name:'Tandoori Chicken',
-   img:'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=500&q=80',
+   img:'https://www.cubesnjuliennes.com/wp-content/uploads/2022/12/Tandoori-Chicken-1-1024x1534.jpg',
    tags:['Non-Veg','Grilled','Classic'],
    ingredients:['Chicken 1 kg (cut pieces)','Yogurt 1 cup','Kashmiri Chilli 2 tsp','Tandoori Masala 3 tbsp','Ginger-Garlic Paste 3 tbsp','Lemon Juice 3 tbsp','Mustard Oil 3 tbsp','Cumin Powder 1 tsp','Garam Masala 1 tsp','Salt to taste'],
    steps:['Make deep cuts in chicken pieces.',
@@ -444,7 +436,7 @@ var DB = [
    yt:'tandoori+chicken+recipe'},
 
   {id:'m04',cat:'Mughlai',name:'Shahi Korma',
-   img:'https://images.unsplash.com/photo-1574653853027-5382a3d23a15?w=500&q=80',
+   img:'https://www.eitanbernath.com/wp-content/uploads/2021/12/Eitan-Bernath-Chicken-Korma--740x925.jpg',
    tags:['Non-Veg','Rich Gravy','Aromatic'],
    ingredients:['Chicken or Lamb 700g','Onion 3 (fried golden)','Yogurt 1 cup','Cashew-Almond Paste ¼ cup','Cream ¼ cup','Cardamom 4','Cloves 5','Cinnamon 1','Saffron in milk','Rose Water 1 tbsp','Ghee 4 tbsp'],
    steps:['Blend fried onions, yogurt, and cashew paste together.',
@@ -469,7 +461,7 @@ var DB = [
    yt:'paneer+butter+masala+recipe'},
 
   {id:'v02',cat:'Vegetarian',name:'Dal Tadka',
-   img:'https://images.unsplash.com/photo-1547592180-85f173990554?w=500&q=80',
+   img:'https://www.cookwithmanali.com/wp-content/uploads/2014/08/Dal-Tadka.jpg',
    tags:['Vegetarian','Everyday','Lentils'],
    ingredients:['Toor Dal 1 cup','Chana Dal ¼ cup','Tomato 2','Onion 1','Garlic 5','Green Chilli 2','Cumin Seeds 2 tsp','Dried Red Chilli 2','Turmeric 1 tsp','Ghee 3 tbsp','Coriander','Salt to taste'],
    steps:['Pressure cook both dals with turmeric, tomato, and salt (4 whistles).',
@@ -481,7 +473,7 @@ var DB = [
    yt:'dal+tadka+recipe'},
 
   {id:'v03',cat:'Vegetarian',name:'Paneer Tikka',
-   img:'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=500&q=80',
+   img:'https://lentillovingfamily.com/wp-content/uploads/2025/08/paneer-tikka-4.jpg',
    tags:['Vegetarian','Grilled','Starter'],
    ingredients:['Paneer 400g cubed','Capsicum 2','Onion 2','Yogurt 1 cup','Ginger-Garlic Paste 2 tbsp','Tikka Masala 2 tbsp','Red Chilli 1 tsp','Kasuri Methi 1 tbsp','Mustard Oil 2 tbsp','Lemon Juice 2 tbsp','Chaat Masala 1 tsp'],
    steps:['Mix yogurt, ginger-garlic paste, tikka masala, chilli, kasuri methi, oils, lemon.',
@@ -493,7 +485,7 @@ var DB = [
    yt:'paneer+tikka+recipe'},
 
   {id:'v04',cat:'Vegetarian',name:'Chana Masala',
-   img:'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500&q=80',
+   img:'https://minimalistbaker.com/wp-content/uploads/2016/02/AMAZING-Chana-Masala-made-in-1-Pot-So-healthy-flavorful-and-delicious-vegan-glutenfree-chanamasala-recipe-minimalistbaker.jpg',
    tags:['Vegetarian','Protein Rich','Spicy'],
    ingredients:['Chickpeas 2 cups (soaked overnight)','Onion 2','Tomato 3','Ginger 2 inches','Garlic 6','Chole Masala 2 tbsp','Cumin 1 tsp','Bay Leaf 2','Amchur 1 tsp','Ghee 2 tbsp','Coriander'],
    steps:['Pressure cook chickpeas with tea bag and salt (5 whistles).',
@@ -505,7 +497,7 @@ var DB = [
    yt:'chana+masala+recipe'},
 
   {id:'v05',cat:'Vegetarian',name:'Baingan Bharta',
-   img:'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=500&q=80',
+   img:'https://www.kuchpakrahahai.in/wp-content/uploads/2016/05/Baingan-Bharta-Recipe.jpg',
    tags:['Vegetarian','Smoky','North Indian'],
    ingredients:['Large Eggplant 1','Onion 2','Tomato 3','Green Chilli 2','Garlic 4','Ginger 1 inch','Red Chilli 1 tsp','Garam Masala ½ tsp','Turmeric ¼ tsp','Mustard Oil 2 tbsp','Coriander'],
    steps:['Roast eggplant directly over gas flame until charred all over.',
@@ -518,7 +510,7 @@ var DB = [
 
   /* ── Indian Sweets ── */
   {id:'sw01',cat:'Indian Sweets',name:'Gulab Jamun',
-   img:'https://images.unsplash.com/photo-1587314168485-3236d6710814?w=500&q=80',
+   img:'https://almondhouse.com/cdn/shop/files/1_IMG_9491_1e1968b7-b144-49ba-a4ed-2659e95a3bcb.jpg?v=1703680462&width=900',
    tags:['Sweets','Festive','Deep Fried'],
    ingredients:['Khoya 1 cup','Maida 3 tbsp','Baking Powder ¼ tsp','Milk 2 tbsp','Sugar 2 cups','Water 1 cup','Cardamom ½ tsp','Rose Water 1 tsp','Saffron few strands','Oil for frying'],
    steps:['Sugar syrup: boil sugar, water, cardamom, saffron, rose water until one-string consistency. Keep warm.',
@@ -530,7 +522,7 @@ var DB = [
    yt:'gulab+jamun+recipe'},
 
   {id:'sw02',cat:'Indian Sweets',name:'Gajar Halwa (Carrot Halwa)',
-   img:'https://images.unsplash.com/photo-1587314168485-3236d6710814?w=500&q=80',
+   img:'https://www.cookwithmanali.com/wp-content/uploads/2015/01/Gajar-Halwa-Indian-1014x1536.jpg',
    tags:['Sweets','Winter Special','Pudding'],
    ingredients:['Carrot 1 kg (grated)','Full Fat Milk 1 litre','Sugar ¾ cup','Ghee 4 tbsp','Cardamom 1 tsp','Cashews ¼ cup','Raisins 2 tbsp','Almonds (sliced)','Khoya ½ cup'],
    steps:['Cook grated carrots in milk on medium heat stirring often.',
@@ -542,7 +534,7 @@ var DB = [
    yt:'gajar+halwa+recipe'},
 
   {id:'sw03',cat:'Indian Sweets',name:'Rice Kheer',
-   img:'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500&q=80',
+   img:'https://www.sharmispassions.com/wp-content/uploads/2022/11/rice-kheer4.jpg',
    tags:['Sweets','Festive','Pudding'],
    ingredients:['Basmati Rice ¼ cup (soaked)','Full Fat Milk 1 litre','Sugar ½ cup','Cardamom 1 tsp','Saffron few strands','Cashews 3 tbsp','Almonds 3 tbsp','Pistachio 2 tbsp','Rose Water 1 tsp'],
    steps:['Boil milk in heavy pan stirring continuously.',
@@ -554,7 +546,7 @@ var DB = [
    yt:'kheer+recipe'},
 
   {id:'sw04',cat:'Indian Sweets',name:'Jalebi',
-   img:'https://images.unsplash.com/photo-1587314168485-3236d6710814?w=500&q=80',
+   img:'https://c.ndtvimg.com/2023-12/annqbng8_jalebi_625x300_19_December_23.jpg?im=FeatureCrop,algorithm=dnn,width=620,height=350',
    tags:['Sweets','Crispy','Street Favourite'],
    ingredients:['Maida 1 cup','Cornflour 2 tbsp','Yogurt 2 tbsp','Yeast ½ tsp','Turmeric ¼ tsp','Sugar 1½ cups','Water ¾ cup','Saffron','Rose Water','Cardamom','Oil for frying'],
    steps:['Mix maida, cornflour, yogurt, yeast, turmeric with water to batter. Ferment 8 hours.',
@@ -566,7 +558,7 @@ var DB = [
    yt:'jalebi+recipe'},
 
   {id:'sw05',cat:'Indian Sweets',name:'Besan Ladoo',
-   img:'https://images.unsplash.com/photo-1587314168485-3236d6710814?w=500&q=80',
+   img:'https://www.sharmispassions.com/wp-content/uploads/2022/10/besan-ladoo1.jpg',
    tags:['Sweets','Festive','Easy'],
    ingredients:['Besan 2 cups','Ghee ½ cup','Powdered Sugar ¾ cup','Cardamom 1 tsp','Cashews 3 tbsp','Raisins 2 tbsp'],
    steps:['Heat ghee in heavy pan. Add besan.',
@@ -578,7 +570,7 @@ var DB = [
    yt:'besan+ladoo+recipe'},
 
   {id:'sw06',cat:'Indian Sweets',name:'Rasgulla',
-   img:'https://images.unsplash.com/photo-1587314168485-3236d6710814?w=500&q=80',
+   img:'https://www.sharmispassions.com/wp-content/uploads/2025/10/rasgulla-recipe1.jpg',
    tags:['Sweets','Bengali','Milk Based'],
    ingredients:['Full Fat Milk 2 litres','Lemon Juice 3 tbsp','Sugar 2 cups','Water 5 cups','Cardamom 2 pods','Rose Water 1 tsp'],
    steps:['Boil milk. Add lemon juice slowly while stirring — milk curdles.',
@@ -590,7 +582,7 @@ var DB = [
    yt:'rasgulla+recipe'},
 
   {id:'sw07',cat:'Indian Sweets',name:'Mango Kulfi',
-   img:'https://images.unsplash.com/photo-1587314168485-3236d6710814?w=500&q=80',
+   img:'https://www.sharmispassions.com/wp-content/uploads/2014/05/mango-kulfi5.jpg',
    tags:['Sweets','Ice Cream','Summer'],
    ingredients:['Mango Pulp 2 cups','Full Fat Milk 1 litre','Condensed Milk ½ cup','Cream ¼ cup','Sugar 3 tbsp','Cardamom ½ tsp','Pistachio 3 tbsp','Saffron few strands'],
    steps:['Boil milk until reduced to half stirring frequently — 20-25 min.',
@@ -603,7 +595,7 @@ var DB = [
 
   /* ── Indian Breads ── */
   {id:'b01',cat:'Indian Breads',name:'Aloo Paratha',
-   img:'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=500&q=80',
+   img:'https://www.kingarthurbaking.com/sites/default/files/styles/featured_image_sm_2x/public/2025-07/Aloo-Paratha-_2025_Lifestyle_H_2435.jpg?itok=K649FPYA',
    tags:['Vegetarian','Breakfast','Stuffed'],
    ingredients:['Wheat Flour 2 cups','Potato 4 (boiled mashed)','Green Chilli 2','Ginger 1 inch','Cumin 1 tsp','Amchur ½ tsp','Garam Masala ½ tsp','Coriander','Ghee for cooking','Salt to taste'],
    steps:['Knead wheat flour with water into soft dough. Rest 20 min.',
@@ -615,7 +607,7 @@ var DB = [
    yt:'aloo+paratha+recipe'},
 
   {id:'b02',cat:'Indian Breads',name:'Garlic Butter Naan',
-   img:'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=500&q=80',
+   img:'https://lentillovingfamily.com/wp-content/uploads/2024/11/garlic-naan-2-1152x1536.jpg',
    tags:['Vegetarian','Tandoor Style','Restaurant'],
    ingredients:['Maida 2 cups','Yogurt ¼ cup','Yeast 1 tsp','Sugar 1 tsp','Salt to taste','Oil 2 tbsp','Garlic 6 cloves (minced)','Butter 4 tbsp','Fresh Coriander','Nigella Seeds'],
    steps:['Mix yeast, sugar in warm water. Let foam 10 min.',
@@ -627,7 +619,7 @@ var DB = [
    yt:'garlic+naan+recipe'},
 
   {id:'b03',cat:'Indian Breads',name:'Puri',
-   img:'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=500&q=80',
+   img:'https://www.ruchiskitchen.com/wp-content/uploads/2020/03/Missi-Masala-Puri-recipe-05.jpg',
    tags:['Vegetarian','Deep Fried','Festive'],
    ingredients:['Wheat Flour 2 cups','Sooji 2 tbsp','Oil 1 tbsp','Salt to taste','Oil for deep frying'],
    steps:['Mix flour, sooji, oil, salt. Add water gradually to make firm dough.',
@@ -639,7 +631,7 @@ var DB = [
    yt:'puri+recipe'},
 
   {id:'b04',cat:'Indian Breads',name:'Laccha Paratha',
-   img:'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=500&q=80',
+   img:'https://myfoodstory.com/wp-content/uploads/2022/08/Homemade-Lachha-Paratha-1-1024x1536.jpg',
    tags:['Vegetarian','Layered','Flaky'],
    ingredients:['Maida 2 cups','Ghee 4 tbsp','Salt to taste','Oil for cooking'],
    steps:['Make soft dough with maida, ghee, salt, water. Rest 30 min.',
@@ -652,7 +644,7 @@ var DB = [
 
   /* ── Drinks & Rice ── */
   {id:'d01',cat:'Drinks & Rice',name:'Mango Lassi',
-   img:'https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=500&q=80',
+   img:'https://www.whiskaffair.com/wp-content/uploads/2020/05/Mango-Lassi-2-1-1024x1536.jpg',
    tags:['Drink','Summer','Sweet'],
    ingredients:['Mango Pulp 1 cup','Yogurt 1 cup','Milk ½ cup','Sugar 3 tbsp','Cardamom ¼ tsp','Ice cubes','Rose Water few drops','Pistachio to garnish'],
    steps:['Blend mango pulp, yogurt, milk, sugar, cardamom until smooth.',
@@ -664,7 +656,7 @@ var DB = [
    yt:'mango+lassi+recipe'},
 
   {id:'d02',cat:'Drinks & Rice',name:'Masala Chai',
-   img:'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=500&q=80',
+   img:'https://www.thespicehouse.com/cdn/shop/articles/Chai_Masala_Tea_720x.jpg?v=1606936195',
    tags:['Drink','Hot','Everyday'],
    ingredients:['Milk 1½ cups','Water ½ cup','Tea Leaves 2 tsp','Sugar 2 tsp','Ginger 1 inch','Cardamom 3 pods','Cloves 2','Black Pepper 2','Cinnamon ½ inch'],
    steps:['Crush cardamom, cloves, pepper with ginger.',
@@ -676,7 +668,7 @@ var DB = [
    yt:'masala+chai+recipe'},
 
   {id:'d03',cat:'Drinks & Rice',name:'Matar Pulao',
-   img:'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500&q=80',
+   img:'https://www.whiskaffair.com/wp-content/uploads/2021/03/Peas-Pulao-2-1-1024x1536.jpg',
    tags:['Vegetarian','Rice','Everyday'],
    ingredients:['Basmati Rice 2 cups (soaked)','Green Peas 1 cup','Onion 1','Bay Leaf 2','Cardamom 3','Cloves 4','Cumin 1 tsp','Ghee 2 tbsp','Salt to taste','Water 3½ cups'],
    steps:['Soak basmati rice 30 min. Drain.',
@@ -688,7 +680,7 @@ var DB = [
    yt:'matar+pulao+recipe'},
 
   {id:'d04',cat:'Drinks & Rice',name:'Sweet Lassi',
-   img:'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=500&q=80',
+   img:'https://www.sharmispassions.com/wp-content/uploads/2023/08/sweet-lassi3.jpg',
    tags:['Drink','Summer','Traditional'],
    ingredients:['Yogurt 1½ cups','Milk ½ cup','Sugar 4 tbsp','Cardamom ¼ tsp','Rose Water 1 tsp','Ice cubes','Cream (malai)','Pistachio'],
    steps:['Take thick yogurt in blender.',
@@ -700,7 +692,7 @@ var DB = [
    yt:'sweet+lassi+recipe'},
 
   {id:'d05',cat:'Drinks & Rice',name:'Nimbu Pani (Indian Lemonade)',
-   img:'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=500&q=80',
+   img:'https://c.ndtvimg.com/2024-06/52sfp9og_masala-shikanji-_625x300_02_June_24.jpg',
    tags:['Drink','Summer','Refreshing'],
    ingredients:['Lemon 4','Sugar 4 tbsp','Black Salt ½ tsp','Roasted Cumin ½ tsp','Mint Leaves fresh','Cold Water 3 cups','Ice cubes'],
    steps:['Squeeze all lemons to get juice.',
@@ -762,9 +754,7 @@ function initLoginPage() {
   });
 }
 
-/* =========================================================
-   REGISTER
-   ========================================================= */
+
 function initRegisterPage() {
   if (getEmail()) { goTo('home.html'); return; }
   initFAQ();
@@ -808,9 +798,7 @@ function initRegisterPage() {
   });
 }
 
-/* =========================================================
-   HOME PAGE
-   ========================================================= */
+
 function initHomePage() {
   if (!getEmail()) { goTo('index.html'); return; }
 
@@ -970,9 +958,7 @@ function renderSection(items, title) {
   });
 }
 
-/* =========================================================
-   MODAL
-   ========================================================= */
+
 function openModal(id) {
   var dish = null;
   for (var i=0; i<DB.length; i++) {
@@ -1036,9 +1022,7 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
-/* =========================================================
-   FAQ ACCORDION
-   ========================================================= */
+
 function initFAQ() {
   qsa('.faq-question').forEach(function(btn) {
     btn.addEventListener('click', function() {
@@ -1050,9 +1034,7 @@ function initFAQ() {
   });
 }
 
-/* =========================================================
-   BOOT
-   ========================================================= */
+
 document.addEventListener('DOMContentLoaded', function() {
 
   document.addEventListener('keydown', function(e) {
